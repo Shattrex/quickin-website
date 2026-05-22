@@ -1,110 +1,124 @@
 'use client';
 
+import Image from 'next/image';
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronRight } from 'lucide-react';
+import { Menu, X, Phone, MapPin } from 'lucide-react';
+import { site } from '@/lib/site';
 
 const navLinks = [
+  { label: 'Home', href: '#home' },
   { label: 'Services', href: '#services' },
-  { label: 'A/C Diagnostics', href: '#ac-diagnostics' },
   { label: 'Brakes', href: '#brakes' },
-  { label: 'Process', href: '#process' },
-  { label: 'Reviews', href: '#reviews' },
+  { label: 'Air Conditioning', href: '#air-conditioning' },
+  { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' },
 ];
 
 export default function Header() {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const scrollToForm = (e: React.MouseEvent) => {
-    e.preventDefault();
-    document.getElementById('service-form')?.scrollIntoView({ behavior: 'smooth' });
-    setMenuOpen(false);
-  };
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-[#0B0B0D]/95 backdrop-blur-md border-b border-[#E10600]/20 shadow-lg shadow-black/50'
-          : 'bg-transparent'
+      className={`sticky top-0 z-50 bg-white transition-shadow duration-200 ${
+        scrolled ? 'shadow-md border-b border-[#e2e4e8]' : 'border-b border-[#e2e4e8]/80'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
-          <a href="#" className="flex flex-col group">
-            <span className="text-xl lg:text-2xl font-black tracking-[0.15em] text-white group-hover:text-[#E10600] transition-colors duration-200">
-              QUICK<span className="text-[#E10600]"> IN</span>
-            </span>
-            <span className="text-[9px] lg:text-[10px] tracking-[0.3em] text-[#A7A9AC] font-medium uppercase -mt-1">
-              Auto &amp; Airconditioning
-            </span>
-          </a>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-[72px] lg:h-[80px] gap-4">
+          <Link href="#home" className="flex-shrink-0" onClick={closeMenu}>
+            <Image
+              src="/logo.png"
+              alt={site.businessName}
+              width={200}
+              height={72}
+              className="h-12 sm:h-14 w-auto object-contain"
+              priority
+            />
+          </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-7">
             {navLinks.map((link) => (
               <a
-                key={link.label}
+                key={link.href}
                 href={link.href}
-                className="text-[#A7A9AC] hover:text-white text-sm font-medium tracking-wide transition-colors duration-200 relative group"
+                className="text-[#1a1a1a] hover:text-[#002d62] text-sm font-semibold transition-colors"
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#E10600] group-hover:w-full transition-all duration-200" />
               </a>
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden lg:flex items-center gap-4">
-            <button
-              onClick={scrollToForm}
-              className="flex items-center gap-2 bg-[#E10600] hover:bg-[#b00500] text-white text-sm font-bold px-5 py-2.5 tracking-wider uppercase transition-all duration-200 group"
-              style={{ clipPath: 'polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%)' }}
+          <div className="hidden lg:flex items-center gap-3">
+            <a
+              href={site.phoneHref}
+              className="flex items-center gap-2 text-[#002d62] font-bold text-sm hover:text-[#e10600] transition-colors"
             >
-              Schedule Service
-              <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
-            </button>
+              <Phone size={16} className="text-[#e10600]" />
+              {site.phone}
+            </a>
+            <a
+              href={site.directionsHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-[#e10600] hover:bg-[#b80500] text-white font-bold text-sm px-5 py-2.5 rounded-sm transition-colors"
+            >
+              <MapPin size={16} />
+              Get Directions
+            </a>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
+            type="button"
+            className="lg:hidden p-2 text-[#002d62]"
             onClick={() => setMenuOpen(!menuOpen)}
-            className="lg:hidden text-[#A7A9AC] hover:text-white p-2"
             aria-label="Toggle menu"
           >
-            {menuOpen ? <X size={22} /> : <Menu size={22} />}
+            {menuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {menuOpen && (
-        <div className="lg:hidden bg-[#0B0B0D]/98 backdrop-blur-md border-b border-[#E10600]/20">
-          <div className="px-4 py-4 flex flex-col gap-3">
+        <div className="lg:hidden border-t border-[#e2e4e8] bg-white px-4 py-4">
+          <nav className="flex flex-col gap-1">
             {navLinks.map((link) => (
               <a
-                key={link.label}
+                key={link.href}
                 href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className="text-[#A7A9AC] hover:text-white py-2 text-sm font-medium tracking-wide border-b border-[#1F2124] transition-colors"
+                onClick={closeMenu}
+                className="py-3 text-[#1a1a1a] font-semibold border-b border-[#f4f5f7] last:border-0"
               >
                 {link.label}
               </a>
             ))}
-            <button
-              onClick={scrollToForm}
-              className="mt-2 bg-[#E10600] hover:bg-[#b00500] text-white text-sm font-bold py-3 tracking-wider uppercase transition-colors"
+          </nav>
+          <div className="mt-4 flex flex-col gap-3">
+            <a
+              href={site.phoneHref}
+              className="flex items-center justify-center gap-2 py-3 border-2 border-[#002d62] text-[#002d62] font-bold rounded-sm"
             >
-              Schedule Service
-            </button>
+              <Phone size={18} />
+              {site.phone}
+            </a>
+            <a
+              href={site.directionsHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 py-3 bg-[#e10600] text-white font-bold rounded-sm"
+            >
+              <MapPin size={18} />
+              Get Directions
+            </a>
           </div>
         </div>
       )}

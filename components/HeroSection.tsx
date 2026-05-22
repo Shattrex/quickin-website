@@ -1,126 +1,114 @@
-'use client';
+import { Phone, MapPin, Snowflake, Disc } from 'lucide-react';
+import { site } from '@/lib/site';
 
-import { Shield, Zap, DollarSign, MapPin, ChevronRight, ArrowDown } from 'lucide-react';
-
-const trustBadges = [
-  { icon: <Zap size={16} />, label: 'A/C Diagnostics' },
-  { icon: <Shield size={16} />, label: 'Brake Service' },
-  { icon: <DollarSign size={16} />, label: 'Clear Estimates' },
-  { icon: <MapPin size={16} />, label: 'Local Morristown Shop' },
+const trustChips = [
+  { label: 'Brakes', icon: <Disc size={14} className="text-[#e10600]" /> },
+  { label: 'Air Conditioning', icon: <Snowflake size={14} className="text-[#1e5a9e]" /> },
+  { label: 'Local Morristown Shop', icon: null },
+  { label: 'Fast Service', icon: null },
 ];
 
 export default function HeroSection() {
-  const scrollToForm = () => {
-    document.getElementById('service-form')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const scrollToSymptoms = () => {
-    document.getElementById('symptom-checker')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-[#0B0B0D] pt-20">
-      {/* Grid texture */}
-      <div className="absolute inset-0 grid-texture opacity-60 pointer-events-none" />
-
-      {/* Diagonal graphite panel */}
-      <div
-        className="absolute right-0 top-0 h-full w-[45%] bg-[#1F2124]/40 pointer-events-none hidden lg:block"
-        style={{ clipPath: 'polygon(12% 0, 100% 0, 100% 100%, 0% 100%)' }}
-      />
-
-      {/* Top speed stripe */}
-      <div className="absolute top-20 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#E10600]/40 to-transparent pointer-events-none" />
-
-      {/* Red speed lines — left side */}
-      <div className="absolute left-0 top-[35%] pointer-events-none hidden lg:flex flex-col gap-3">
-        {[180, 280, 160, 220, 100].map((w, i) => (
-          <div
-            key={i}
-            className="h-[2px] bg-gradient-to-r from-transparent via-[#E10600] to-transparent opacity-60"
-            style={{ width: `${w}px`, marginLeft: `${i * 8}px` }}
-          />
-        ))}
+    <section
+      id="home"
+      className="relative overflow-hidden bg-gradient-to-b from-white via-[#fafbfc] to-[#f4f5f7]"
+    >
+      <div className="absolute inset-0 pointer-events-none opacity-40">
+        <div className="absolute top-20 right-0 w-96 h-96 bg-[#e8f2fc] rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-72 h-72 bg-red-50 rounded-full blur-3xl" />
       </div>
 
-      {/* Main content */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="max-w-3xl">
-          {/* Pre-headline badge */}
-          <div className="inline-flex items-center gap-2 bg-[#E10600]/10 border border-[#E10600]/30 px-4 py-1.5 mb-6">
-            <span className="w-2 h-2 rounded-full bg-[#E10600] animate-blink" />
-            <span className="text-[#E10600] text-xs font-bold tracking-[0.2em] uppercase">
-              Morristown, Tennessee
-            </span>
-          </div>
+      <div className="speed-accent absolute top-0 left-0 right-0" />
 
-          {/* Main headline */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[0.95] tracking-tight mb-6">
-            <span className="block text-white">Morristown's</span>
-            <span className="block metallic-text">Quick Stop</span>
-            <span className="block text-white">
-              for A/C, Brakes
-            </span>
-            <span className="block text-white">
-              &amp; <span className="text-[#E10600]">Light Auto Repair</span>
-            </span>
-          </h1>
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div>
+            <p className="text-[#002d62] font-bold text-sm tracking-wide uppercase mb-4">
+              {site.city}, {site.state}
+            </p>
+            <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-[#002d62] leading-tight mb-5">
+              Fast Brakes &amp; Air Conditioning Service in Morristown
+            </h1>
+            <p className="text-[#4a4a4a] text-lg leading-relaxed mb-8 max-w-xl">
+              {site.businessName} helps local drivers get back on the road with honest
+              diagnostics, clear communication, and fast service for brakes, A/C, and light
+              auto repair.
+            </p>
 
-          {/* Sub headline */}
-          <p className="text-[#A7A9AC] text-lg lg:text-xl leading-relaxed mb-10 max-w-2xl">
-            Clear diagnostics, honest estimates, and fast local service
-            built to get you back on the road.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-14">
-            <button
-              onClick={scrollToForm}
-              className="group flex items-center justify-center gap-3 bg-[#E10600] hover:bg-[#b00500] text-white font-bold text-sm tracking-wider uppercase px-8 py-4 transition-all duration-200 relative overflow-hidden"
-              style={{ clipPath: 'polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%)' }}
-            >
-              <span className="relative z-10 flex items-center gap-2">
-                Schedule Service
-                <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </span>
-              <span className="absolute inset-0 bg-white/10 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 skew-x-12" />
-            </button>
-
-            <button
-              onClick={scrollToSymptoms}
-              className="group flex items-center justify-center gap-3 bg-transparent border border-[#A7A9AC]/30 hover:border-[#A7A9AC] text-[#A7A9AC] hover:text-white font-bold text-sm tracking-wider uppercase px-8 py-4 transition-all duration-200"
-              style={{ clipPath: 'polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%)' }}
-            >
-              Check My Symptoms
-              <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
-
-          {/* Trust badges */}
-          <div className="flex flex-wrap gap-3">
-            {trustBadges.map((badge) => (
-              <div
-                key={badge.label}
-                className="flex items-center gap-2 bg-[#1F2124] border border-[#A7A9AC]/15 px-4 py-2"
+            <div className="flex flex-col sm:flex-row gap-3 mb-8">
+              <a
+                href={site.phoneHref}
+                className="inline-flex items-center justify-center gap-2 bg-[#e10600] hover:bg-[#b80500] text-white font-bold px-8 py-4 rounded-sm transition-colors"
               >
-                <span className="text-[#E10600]">{badge.icon}</span>
-                <span className="text-[#A7A9AC] text-xs font-semibold tracking-wide uppercase">
-                  {badge.label}
+                <Phone size={20} />
+                Call Now
+              </a>
+              <a
+                href={site.directionsHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-white border-2 border-[#002d62] text-[#002d62] hover:bg-[#002d62] hover:text-white font-bold px-8 py-4 rounded-sm transition-colors"
+              >
+                <MapPin size={20} />
+                Get Directions
+              </a>
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              {trustChips.map((chip) => (
+                <span
+                  key={chip.label}
+                  className="inline-flex items-center gap-1.5 bg-white border border-[#e2e4e8] text-[#1a1a1a] text-xs font-semibold px-3 py-2 rounded-full shadow-sm"
+                >
+                  {chip.icon}
+                  {chip.label}
                 </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Visual placeholder — replace image in /public when ready */}
+          <div className="relative">
+            <div className="aspect-[4/3] rounded-lg bg-gradient-to-br from-[#e8f2fc] via-white to-[#f4f5f7] border border-[#e2e4e8] shadow-lg overflow-hidden flex flex-col items-center justify-center p-8 text-center">
+              <div className="w-full max-w-[280px] mb-4 opacity-90">
+                <svg viewBox="0 0 320 120" className="w-full h-auto" aria-hidden>
+                  <path
+                    d="M40 85 L55 55 Q75 40 110 38 L220 38 Q255 42 270 58 L285 85 Z"
+                    fill="#002d62"
+                    opacity="0.15"
+                  />
+                  <path
+                    d="M70 85 L85 62 Q100 50 125 48 L195 48 Q215 50 228 62 L240 85 Z"
+                    fill="#1e5a9e"
+                    opacity="0.2"
+                  />
+                  <ellipse cx="95" cy="88" rx="22" ry="22" fill="#1a1a1a" opacity="0.08" />
+                  <ellipse cx="235" cy="88" rx="22" ry="22" fill="#1a1a1a" opacity="0.08" />
+                  <path
+                    d="M20 60 Q80 20 160 35 Q240 50 300 45"
+                    stroke="#e10600"
+                    strokeWidth="3"
+                    fill="none"
+                    opacity="0.5"
+                  />
+                  <path
+                    d="M30 70 Q90 35 165 48 Q240 62 295 58"
+                    stroke="#002d62"
+                    strokeWidth="2"
+                    fill="none"
+                    opacity="0.4"
+                  />
+                </svg>
               </div>
-            ))}
+              <p className="text-[#002d62] font-bold text-sm">Automotive service visual</p>
+              <p className="text-[#a7a9ac] text-xs mt-1 max-w-[220px]">
+                Replace with your shop or vehicle photo in /public
+              </p>
+            </div>
           </div>
         </div>
       </div>
-
-      {/* Bottom scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
-        <span className="text-[#A7A9AC] text-[10px] tracking-[0.3em] uppercase">Scroll</span>
-        <ArrowDown size={14} className="text-[#A7A9AC] animate-bounce" />
-      </div>
-
-      {/* Bottom divider */}
-      <div className="absolute bottom-0 left-0 right-0 section-sep" />
     </section>
   );
 }

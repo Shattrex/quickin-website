@@ -1,102 +1,79 @@
-'use client';
+import Image from 'next/image';
+import Link from 'next/link';
+import { site } from '@/lib/site';
 
-const footerLinks = {
-  Services: [
-    { label: 'A/C Diagnostics', href: '#ac-diagnostics' },
-    { label: 'Brake Service', href: '#brakes' },
-    { label: 'Cooling System', href: '#services' },
-    { label: 'Battery & Electrical', href: '#services' },
-    { label: 'Engine Care', href: '#services' },
-  ],
-  Company: [
-    { label: 'Our Process', href: '#process' },
-    { label: 'About Quick In', href: '#contact' },
-    { label: 'Reviews', href: '#reviews' },
-    { label: 'Contact', href: '#contact' },
-  ],
-  'Quick In': [
-    { label: 'Quick In A/C', href: '#ac-diagnostics' },
-    { label: 'Quick In Brakes', href: '#brakes' },
-    { label: 'Future Services', href: '#brakes' },
-  ],
-};
+const footerNav = [
+  { label: 'Home', href: '#home' },
+  { label: 'Services', href: '#services' },
+  { label: 'Brakes', href: '#brakes' },
+  { label: 'Air Conditioning', href: '#air-conditioning' },
+  { label: 'About', href: '#about' },
+  { label: 'Contact', href: '#contact' },
+];
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#0B0B0D] border-t border-[#A7A9AC]/10">
-      {/* Top red stripe */}
-      <div className="h-[2px] bg-gradient-to-r from-transparent via-[#E10600] to-transparent" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 mb-12">
-          {/* Brand column */}
-          <div className="lg:col-span-2">
-            <div className="flex flex-col mb-4">
-              <span className="text-2xl font-black tracking-[0.15em] text-white">
-                QUICK<span className="text-[#E10600]"> IN</span>
-              </span>
-              <span className="text-[10px] tracking-[0.3em] text-[#A7A9AC] font-medium uppercase mt-0.5">
-                Auto &amp; Airconditioning
-              </span>
+    <footer className="bg-[#002d62] text-white pt-12 pb-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mb-10">
+          <div>
+            <div className="inline-block bg-white rounded-sm px-3 py-2 mb-4">
+              <Image
+                src="/logo.png"
+                alt={site.businessName}
+                width={180}
+                height={64}
+                className="h-12 w-auto object-contain"
+              />
             </div>
-            <p className="text-[#A7A9AC]/70 text-sm leading-relaxed mb-6 max-w-xs">
-              Morristown's quick stop for A/C diagnostics, brake service, and honest automotive repair.
-            </p>
-
-            {/* Tagline */}
-            <div className="border-l-2 border-[#E10600] pl-3">
-              <p className="text-[#A7A9AC] text-sm italic">
-                "Built for speed. Engineered for trust."
-              </p>
-            </div>
-
-            {/* Contact quick links */}
-            <div className="mt-6 space-y-1.5">
-              <p className="text-[#A7A9AC] text-xs">
-                <span className="text-white font-semibold">Morristown, TN</span>
-              </p>
-              <p className="text-[#A7A9AC] text-xs">(423) 555-0000</p>
-              <p className="text-[#A7A9AC] text-xs">hello@quickinauto.com</p>
-            </div>
+            <p className="text-white/80 text-sm font-semibold">{site.tagline}</p>
           </div>
 
-          {/* Link columns */}
-          {Object.entries(footerLinks).map(([category, links]) => (
-            <div key={category}>
-              <h4 className="text-white text-xs font-black tracking-[0.2em] uppercase mb-4">
-                {category}
-              </h4>
-              <ul className="space-y-2.5">
-                {links.map(link => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="text-[#A7A9AC]/70 hover:text-white text-sm transition-colors duration-200 hover:text-[#E10600]"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div>
+            <p className="font-bold text-sm uppercase tracking-wide mb-4 text-white/70">
+              Contact
+            </p>
+            <ul className="space-y-2 text-sm text-white/90">
+              <li>
+                <a href={site.phoneHref} className="hover:text-[#ffcccc] transition-colors">
+                  {site.phone}
+                </a>
+              </li>
+              <li>
+                <a href={site.emailHref} className="hover:text-[#ffcccc] transition-colors">
+                  {site.email}
+                </a>
+              </li>
+              <li>{site.address.full}</li>
+            </ul>
+          </div>
+
+          <div>
+            <p className="font-bold text-sm uppercase tracking-wide mb-4 text-white/70">
+              Navigation
+            </p>
+            <ul className="space-y-2">
+              {footerNav.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="text-sm text-white/90 hover:text-white transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
-        {/* Divider */}
-        <div className="section-sep my-8" />
-
-        {/* Bottom bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[#A7A9AC]/40 text-xs tracking-wide">
-            © {new Date().getFullYear()} Quick In Auto &amp; Airconditioning. Morristown, TN.
+        <div className="border-t border-white/20 pt-6 flex flex-col sm:flex-row justify-between gap-2 text-xs text-white/60">
+          <p>
+            © {new Date().getFullYear()} {site.businessName}. {site.address.cityStateZip}.
           </p>
-          <div className="flex items-center gap-2">
-            <span className="text-[#A7A9AC]/30 text-xs">Front-end demo built by</span>
-            <span className="text-[#E10600] text-xs font-bold tracking-wider">Alanto AI</span>
-          </div>
-          <p className="text-[#A7A9AC]/30 text-[10px] tracking-widest uppercase">
-            Demo — Not a live site
-          </p>
+          <Link href="#home" className="hover:text-white transition-colors">
+            Back to top
+          </Link>
         </div>
       </div>
     </footer>

@@ -1,35 +1,31 @@
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
-import CarAnimation from '@/components/CarAnimation';
-import ServiceSelector from '@/components/ServiceSelector';
-import SymptomChecker from '@/components/SymptomChecker';
-import ServiceRequestForm from '@/components/ServiceRequestForm';
-import ACDiagnosticsSection from '@/components/ACDiagnosticsSection';
-import BrakesPreview from '@/components/BrakesPreview';
+import QuickContactStrip from '@/components/QuickContactStrip';
+import ServicesSection from '@/components/ServicesSection';
+import BrakesSection from '@/components/BrakesSection';
+import AirConditioningSection from '@/components/AirConditioningSection';
+import WhyQuickIn from '@/components/WhyQuickIn';
 import ProcessSection from '@/components/ProcessSection';
-import LocalTrustSection from '@/components/LocalTrustSection';
-import ReviewsSection from '@/components/ReviewsSection';
-import AutomationDashboard from '@/components/AutomationDashboard';
-import ContactSection from '@/components/ContactSection';
+import LocationContact from '@/components/LocationContact';
+import SimpleContactForm from '@/components/SimpleContactForm';
 import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
-    <main className="bg-[#0B0B0D] text-white min-h-screen">
+    <>
       <Header />
-      <HeroSection />
-      <CarAnimation />
-      <ServiceSelector />
-      <SymptomChecker />
-      <ServiceRequestForm />
-      <ACDiagnosticsSection />
-      <BrakesPreview />
-      <ProcessSection />
-      <LocalTrustSection />
-      <ReviewsSection />
-      <AutomationDashboard />
-      <ContactSection />
+      <main>
+        <HeroSection />
+        <QuickContactStrip />
+        <ServicesSection />
+        <BrakesSection />
+        <AirConditioningSection />
+        <WhyQuickIn />
+        <ProcessSection />
+        <LocationContact />
+        <SimpleContactForm />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }

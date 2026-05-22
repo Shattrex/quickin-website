@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Quick In Auto & Airconditioning | Morristown, TN",
-  description: "Morristown's quick stop for A/C diagnostics, brake service, and honest automotive repair. Clear estimates. Fast service. Built for local drivers.",
+  title: "Quick In Auto | Brakes & Air Conditioning | Morristown, TN",
+  description:
+    "Quick In Auto in Morristown, TN specializes in brake service and air conditioning repair. Call or visit for honest diagnostics and fast local auto service.",
 };
 
 export default function RootLayout({

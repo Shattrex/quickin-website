@@ -1,28 +1,27 @@
 @import "tailwindcss";
 
 :root {
-  --jet-black: #0B0B0D;
-  --graphite: #1F2124;
-  --metallic-grey: #A7A9AC;
-  --racing-red: #E10600;
-  --background: #0B0B0D;
-  --foreground: #ffffff;
+  --navy: #002d62;
+  --navy-dark: #001f45;
+  --red: #e10600;
+  --red-dark: #b80500;
+  --blue-accent: #1e5a9e;
+  --blue-light: #e8f2fc;
+  --silver: #a7a9ac;
+  --grey-bg: #f4f5f7;
+  --grey-border: #e2e4e8;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-jet-black: #0B0B0D;
-  --color-graphite: #1F2124;
-  --color-metallic: #A7A9AC;
-  --color-red: #E10600;
-  --color-red-dark: #b00500;
+  --color-navy: #002d62;
+  --color-navy-dark: #001f45;
+  --color-red: #e10600;
+  --color-red-dark: #b80500;
+  --color-blue-accent: #1e5a9e;
+  --color-blue-light: #e8f2fc;
+  --color-silver: #a7a9ac;
+  --color-grey-bg: #f4f5f7;
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-* {
-  box-sizing: border-box;
 }
 
 html {
@@ -30,131 +29,36 @@ html {
 }
 
 body {
-  background: #0B0B0D;
-  color: #ffffff;
-  font-family: Arial, Helvetica, sans-serif;
-  overflow-x: hidden;
+  background: #ffffff;
+  color: #1a1a1a;
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #0B0B0D;
-}
-::-webkit-scrollbar-thumb {
-  background: #E10600;
-  border-radius: 3px;
-}
-
-/* Speed line animation */
-@keyframes speedLine {
-  0% { transform: translateX(-100%) scaleX(0); opacity: 0; }
-  50% { opacity: 1; }
-  100% { transform: translateX(200%) scaleX(1); opacity: 0; }
+/* Subtle speed-line accent (logo-inspired) */
+.speed-accent {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(225, 6, 0, 0.08) 35%,
+    rgba(0, 45, 98, 0.06) 65%,
+    transparent 100%
+  );
+  height: 3px;
 }
 
-@keyframes wheelSpin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+/* Section heading underline */
+.heading-accent {
+  position: relative;
+  display: inline-block;
 }
 
-@keyframes carRoll {
-  0% { transform: translateX(0); }
-  30% { transform: translateX(60px); }
-  60% { transform: translateX(30px); }
-  80% { transform: translateX(50px); }
-  100% { transform: translateX(45px); }
-}
-
-@keyframes redStreak {
-  0% { opacity: 0; transform: translateX(0) scaleX(0); transform-origin: right; }
-  50% { opacity: 0.9; }
-  100% { opacity: 0; transform: translateX(-120px) scaleX(1); transform-origin: right; }
-}
-
-@keyframes glowPulse {
-  0%, 100% { box-shadow: 0 0 8px #E10600, 0 0 16px #E10600; }
-  50% { box-shadow: 0 0 20px #E10600, 0 0 40px #E10600; }
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideInLeft {
-  from { opacity: 0; transform: translateX(-40px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
-}
-
-.animate-speed-line { animation: speedLine 1.2s ease-out forwards; }
-.animate-wheel-spin { animation: wheelSpin 0.6s linear infinite; }
-.animate-car-roll { animation: carRoll 1s ease-out forwards; }
-.animate-red-streak { animation: redStreak 1s ease-out forwards; }
-.animate-glow-pulse { animation: glowPulse 2s ease-in-out infinite; }
-.animate-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
-.animate-slide-in-left { animation: slideInLeft 0.5s ease-out forwards; }
-.animate-blink { animation: blink 1.5s ease-in-out infinite; }
-
-/* Metallic text effect */
-.metallic-text {
-  background: linear-gradient(135deg, #A7A9AC 0%, #ffffff 40%, #A7A9AC 60%, #787A7C 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: shimmer 4s linear infinite;
-}
-
-/* Grid texture overlay */
-.grid-texture {
-  background-image: 
-    linear-gradient(rgba(231,6,0,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(231,6,0,0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
-}
-
-/* Red glow border */
-.red-glow-border {
-  border: 1px solid rgba(225, 6, 0, 0.3);
-  box-shadow: 0 0 12px rgba(225, 6, 0, 0.1), inset 0 0 12px rgba(225, 6, 0, 0.05);
-}
-
-.red-glow-border:hover {
-  border-color: rgba(225, 6, 0, 0.7);
-  box-shadow: 0 0 20px rgba(225, 6, 0, 0.3), inset 0 0 20px rgba(225, 6, 0, 0.1);
-}
-
-/* Metallic border */
-.metallic-border {
-  border: 1px solid rgba(167, 169, 172, 0.2);
-}
-
-.metallic-border:hover {
-  border-color: rgba(167, 169, 172, 0.5);
-}
-
-/* Speed stripe decorative */
-.speed-stripe {
-  background: linear-gradient(90deg, transparent, #E10600, transparent);
-  height: 2px;
-}
-
-/* Section separator */
-.section-sep {
-  background: linear-gradient(90deg, transparent, rgba(225,6,0,0.5), transparent);
-  height: 1px;
-  width: 100%;
+.heading-accent::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--red), var(--navy));
+  border-radius: 1px;
 }
