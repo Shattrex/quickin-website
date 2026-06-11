@@ -1,13 +1,15 @@
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
-import QuickContactStrip from '@/components/QuickContactStrip';
+import IntroVideoSection from '@/components/IntroVideoSection';
 import ServicesSection from '@/components/ServicesSection';
-import BrakesSection from '@/components/BrakesSection';
+import SymptomChecker from '@/components/SymptomChecker';
 import AirConditioningSection from '@/components/AirConditioningSection';
-import WhyQuickIn from '@/components/WhyQuickIn';
+import BrakesSection from '@/components/BrakesSection';
+import RobertSection from '@/components/RobertSection';
 import ProcessSection from '@/components/ProcessSection';
-import LocationContact from '@/components/LocationContact';
-import SimpleContactForm from '@/components/SimpleContactForm';
+import ServiceRequestForm from '@/components/ServiceRequestForm';
+import AutomationPreviewSection from '@/components/AutomationPreviewSection';
+import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 
 export default function Home() {
@@ -16,14 +18,16 @@ export default function Home() {
       <Header />
       <main>
         <HeroSection />
-        <QuickContactStrip />
+        <IntroVideoSection />
         <ServicesSection />
-        <BrakesSection />
+        <SymptomChecker />
         <AirConditioningSection />
-        <WhyQuickIn />
+        <BrakesSection />
+        <RobertSection />
         <ProcessSection />
-        <LocationContact />
-        <SimpleContactForm />
+        <ServiceRequestForm />
+        <AutomationPreviewSection />
+        <ContactSection />
       </main>
       <Footer />
     </>

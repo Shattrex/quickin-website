@@ -1,37 +1,38 @@
-import { Phone, Snowflake } from 'lucide-react';
+import { Snowflake } from 'lucide-react';
+import { acDiagnosticCards } from '@/lib/content';
 import { site } from '@/lib/site';
+import SectionHeader from '@/components/ui/SectionHeader';
+import CTAButton from '@/components/ui/CTAButton';
 
 export default function AirConditioningSection() {
   return (
-    <section
-      id="air-conditioning"
-      className="py-16 lg:py-20 bg-[#e8f2fc] border-y border-[#c5daf0]"
-    >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 text-[#1e5a9e] font-bold text-sm mb-3">
-              <Snowflake size={20} />
-              Air Conditioning
-            </div>
-            <h2 className="text-2xl lg:text-3xl font-extrabold text-[#002d62] mb-4">
-              Car A/C Not Cooling?
-            </h2>
-            <p className="text-[#4a4a4a] text-lg leading-relaxed mb-8">
-              Tennessee heat makes a weak A/C system impossible to ignore. {site.businessName}{' '}
-              checks airflow, cooling performance, leaks, and common A/C issues so you know what
-              needs attention.
-            </p>
-            <a
-              href={site.phoneHref}
-              className="inline-flex items-center gap-2 bg-[#e10600] hover:bg-[#b80500] text-white font-bold px-8 py-4 rounded-sm transition-colors"
-            >
-              <Phone size={20} />
-              Call About A/C Service
-            </a>
+    <section id="ac-diagnostics" className="py-16 lg:py-24 section-alt relative overflow-hidden">
+      <div className="garage-grid absolute inset-0 opacity-30 pointer-events-none" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          <div>
+            <SectionHeader
+              eyebrow="A/C Diagnostics"
+              title="Warm air doesn't always mean you need a new compressor."
+              description="Quick In focuses on proper diagnostics before replacing parts. Tennessee heat is hard enough — you deserve to know what's actually wrong with your A/C before paying for a fix you may not need."
+            />
+            <CTAButton href={`#${site.serviceRequestId}`}>Book A/C Diagnostic</CTAButton>
           </div>
-          <div className="hidden lg:block w-48 h-48 rounded-full bg-white/60 border border-[#c5daf0] flex items-center justify-center">
-            <Snowflake size={64} className="text-[#1e5a9e] opacity-40" strokeWidth={1.5} />
+
+          <div className="grid sm:grid-cols-2 gap-4">
+            {acDiagnosticCards.map((card) => (
+              <div
+                key={card.title}
+                className="metallic-card rounded-lg p-5 transition-all duration-300 hover:border-[#E10600]/40"
+              >
+                <div className="flex items-center gap-2 mb-3">
+                  <Snowflake size={16} className="text-[#E10600]" />
+                  <h3 className="text-[#002D62] font-bold text-sm">{card.title}</h3>
+                </div>
+                <p className="text-[#4A4A4A] text-sm leading-relaxed">{card.text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
