@@ -43,9 +43,6 @@ export const site = {
   robertImage: '/robert.png',
   facilityShopImage: '/facility-shop.png',
 
-  /** TODO: Replace with official Quick In Auto Facebook page URL */
-  facebookHref: 'https://www.facebook.com/',
-
   /** Google Drive intro video (9:16 portrait) */
   welcomeVideoEmbedUrl:
     'https://drive.google.com/file/d/18eHKoCLjELXVx-ojslxAsoNbICeopUB4/preview',

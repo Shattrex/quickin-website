@@ -6,7 +6,6 @@ import ServicesSection from '@/components/ServicesSection';
 import RobertSection from '@/components/RobertSection';
 import FacilityProgressSection from '@/components/FacilityProgressSection';
 import MapSection from '@/components/MapSection';
-import SocialSection from '@/components/SocialSection';
 import OpeningUpdatesForm from '@/components/OpeningUpdatesForm';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
@@ -23,7 +22,6 @@ export default function Home() {
         <RobertSection />
         <FacilityProgressSection />
         <MapSection />
-        <SocialSection />
         <OpeningUpdatesForm />
         <ContactSection />
       </main>
