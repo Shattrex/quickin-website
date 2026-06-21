@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { site, navLinks } from '@/lib/site';
-import { ScheduleServiceButton } from '@/components/ui/CTAButton';
+import { OpeningUpdatesButton } from '@/components/ui/CTAButton';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -22,20 +22,14 @@ export default function Header() {
   return (
     <header
       className={`sticky top-0 z-50 bg-white/98 backdrop-blur-md transition-all duration-200 border-b ${
-        scrolled
-          ? 'border-[#002D62]/15 shadow-md'
-          : 'border-[#D8DCE2]'
+        scrolled ? 'border-[#002D62]/15 shadow-md' : 'border-[#D8DCE2]'
       }`}
     >
       <div className="absolute top-0 left-0 right-0 h-0.5 motion-line opacity-80" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-[76px] lg:h-[88px] gap-4">
-          <Link
-            href="#home"
-            className="flex-shrink-0"
-            onClick={closeMenu}
-          >
+          <Link href="#home" className="flex-shrink-0" onClick={closeMenu}>
             <Image
               src={site.logoPath}
               alt={`${site.fullName} logo`}
@@ -59,7 +53,7 @@ export default function Header() {
           </nav>
 
           <div className="hidden lg:block">
-            <ScheduleServiceButton className="px-5 py-2.5 text-sm" />
+            <OpeningUpdatesButton className="px-5 py-2.5 text-sm" />
           </div>
 
           <button
@@ -88,7 +82,7 @@ export default function Header() {
             ))}
           </nav>
           <div className="mt-4">
-            <ScheduleServiceButton className="w-full" />
+            <OpeningUpdatesButton className="w-full" />
           </div>
         </div>
       )}

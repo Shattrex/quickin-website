@@ -47,18 +47,18 @@ export default function CTAButton({
   );
 }
 
-export function ScheduleServiceButton({ className = '' }: { className?: string }) {
+export function OpeningUpdatesButton({
+  className = '',
+  variant = 'primary' as 'primary' | 'secondary' | 'outline',
+  label = 'Get Opening Updates',
+}: {
+  className?: string;
+  variant?: 'primary' | 'secondary' | 'outline';
+  label?: string;
+}) {
   return (
-    <CTAButton href={`#${site.serviceRequestId}`} className={className}>
-      Schedule Service
-    </CTAButton>
-  );
-}
-
-export function WatchVideoButton({ className = '' }: { className?: string }) {
-  return (
-    <CTAButton href={`#${site.introVideoId}`} variant="outline" className={className}>
-      Watch Intro Video
+    <CTAButton href={`#${site.openingUpdatesId}`} variant={variant} className={className}>
+      {label}
     </CTAButton>
   );
 }

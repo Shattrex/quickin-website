@@ -1,14 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { site } from '@/lib/site';
-
-const footerLinks = [
-  { label: 'Services', href: '#services' },
-  { label: 'A/C Diagnostics', href: '#ac-diagnostics' },
-  { label: 'Brakes', href: '#brakes' },
-  { label: 'Meet Robert', href: '#meet-robert' },
-  { label: 'Contact', href: '#contact' },
-];
+import { site, navLinks } from '@/lib/site';
 
 export default function Footer() {
   return (
@@ -27,7 +19,12 @@ export default function Footer() {
                 className="h-14 w-auto object-contain bg-white rounded-sm px-2 py-1"
               />
             </Link>
-            <p className="text-white/75 text-sm italic">{site.tagline}</p>
+            <p className="text-white font-bold text-sm">{site.fullName}</p>
+            <p className="text-white/80 text-sm mt-1">{site.tagline}</p>
+            <p className="text-white/80 text-sm mt-1">{site.locationLabel}</p>
+            <p className="text-[#E10600] font-extrabold text-sm uppercase tracking-widest mt-3">
+              {site.openingStatus}
+            </p>
           </div>
 
           <div>
@@ -35,7 +32,7 @@ export default function Footer() {
               Quick Links
             </p>
             <nav className="flex flex-col gap-2">
-              {footerLinks.map((link) => (
+              {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
@@ -49,24 +46,29 @@ export default function Footer() {
 
           <div>
             <p className="text-white font-bold text-sm uppercase tracking-widest mb-4">
-              Location
+              Stay Updated
             </p>
-            <p className="text-white/75 text-sm">{site.fullName}</p>
-            <p className="text-white/75 text-sm">{site.locationLabel}</p>
+            <p className="text-white/75 text-sm leading-relaxed mb-4">
+              More details, contact information, and opening updates will be added as the location
+              prepares to open.
+            </p>
             <a
-              href={site.phoneHref}
-              className="text-[#E10600] text-sm font-bold mt-2 inline-block hover:underline"
+              href={`#${site.openingUpdatesId}`}
+              className="text-[#E10600] text-sm font-bold hover:underline"
             >
-              {site.phone}
+              Join the Opening List →
             </a>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/15 flex flex-col sm:flex-row justify-between gap-4 text-white/50 text-xs">
+        <div className="pt-8 border-t border-white/15 text-white/50 text-xs text-center">
           <p>
-            © {new Date().getFullYear()} {site.fullName}. Demo site — placeholders where noted.
+            © {new Date().getFullYear()} {site.fullName}. {site.locationLabel}. {site.openingStatus}.
           </p>
-          <p>{site.locationLabel}</p>
+          <p className="mt-2 max-w-xl mx-auto">
+            More details, contact information, and opening updates will be added as the location
+            prepares to open.
+          </p>
         </div>
       </div>
     </footer>

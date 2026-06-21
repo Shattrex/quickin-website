@@ -1,11 +1,14 @@
 /**
- * Quick In Auto & Airconditioning — editable business config.
+ * Quick In Auto — coming soon site config.
+ * TODO: Add final phone number, email, address, official Facebook URL,
+ * facility photos, Robert video, Kimberly HeyGen video, and opening date.
  */
 export const colors = {
   navy: '#002D62',
   navyDark: '#001F45',
   racingRed: '#E10600',
   racingRedDark: '#B80500',
+  blueAccent: '#1E5A9E',
   metallicGrey: '#A7A9AC',
   charcoal: '#1A1A1A',
   softWhite: '#F5F5F5',
@@ -13,55 +16,37 @@ export const colors = {
 } as const;
 
 export const site = {
-  businessName: 'QUICK IN',
-  descriptor: 'Auto & Airconditioning',
-  fullName: 'Quick In Auto & Airconditioning',
-  tagline: 'Built for speed. Engineered for trust.',
-
+  businessName: 'Quick In Auto',
+  tagline: 'Specializing in Brakes and Air Conditioning',
+  fullName: 'Quick In Auto',
   logoPath: '/logo.png',
-
-  /** PLACEHOLDER — update when live number is confirmed */
-  phone: '(423) 555-0198',
-  phoneHref: 'tel:+14235550198',
-
-  /** PLACEHOLDER — update when live email is confirmed */
-  email: 'service@quickinauto.com',
-  emailHref: 'mailto:service@quickinauto.com',
-
-  /** PLACEHOLDER — update when hours are confirmed */
-  hours: 'Mon–Fri: 8:00 AM – 5:00 PM · Sat: By appointment',
 
   city: 'Morristown',
   state: 'Tennessee',
   locationLabel: 'Morristown, Tennessee',
 
-  /** PLACEHOLDER sample address */
-  address: {
-    line1: '1234 E Morris Blvd',
-    cityStateZip: 'Morristown, TN 37813',
-    full: '1234 E Morris Blvd, Morristown, TN 37813',
-  },
-
-  directionsHref:
-    'https://www.google.com/maps/search/?api=1&query=Morristown+Tennessee',
-
-  /** Google Drive intro video — embed + fallback view link */
-  introVideoEmbedUrl:
-    'https://drive.google.com/file/d/179BuWKr0wEiWkL9hBqTl7qTAhMKxzT-e/preview',
-  introVideoViewUrl:
-    'https://drive.google.com/file/d/179BuWKr0wEiWkL9hBqTl7qTAhMKxzT-e/view?usp=sharing',
+  openingStatus: 'Opening Soon',
+  announcementText: 'Quick In Auto Is Coming Soon to Morristown, Tennessee',
 
   robertImage: '/robert.png',
+  /** TODO: Replace with Kimberly's official photo when provided */
+  kimberlyImage: '/kimberly.png',
 
-  serviceRequestId: 'service-request',
-  introVideoId: 'intro-video',
+  /** TODO: Replace with official Quick In Auto Facebook page URL */
+  facebookHref: 'https://www.facebook.com/',
+
+  /** TODO: Replace with HeyGen welcome video embed URL when ready */
+  welcomeVideoEmbedUrl: null as string | null,
+
+  openingUpdatesId: 'opening-updates',
+  introVideoId: 'welcome-video',
+  facilityId: 'coming-soon',
 } as const;
 
 export const navLinks = [
-  { label: 'Services', href: '#services' },
-  { label: 'A/C Diagnostics', href: '#ac-diagnostics' },
-  { label: 'Brakes', href: '#brakes' },
+  { label: 'Home', href: '#home' },
+  { label: 'Future Services', href: '#services' },
   { label: 'Meet Robert', href: '#meet-robert' },
-  { label: 'Process', href: '#process' },
+  { label: 'Coming Soon', href: '#coming-soon' },
   { label: 'Contact', href: '#contact' },
 ] as const;
