@@ -21,7 +21,7 @@ export default function Footer() {
             </Link>
             <p className="text-white font-bold text-sm">{site.fullName}</p>
             <p className="text-white/80 text-sm mt-1">{site.tagline}</p>
-            <p className="text-white/80 text-sm mt-1">{site.locationLabel}</p>
+            <p className="text-white/80 text-sm mt-1">{site.address.full}</p>
             <p className="text-[#E10600] font-extrabold text-sm uppercase tracking-widest mt-3">
               {site.openingStatus}
             </p>

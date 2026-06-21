@@ -1,7 +1,7 @@
 /**
  * Quick In Auto — coming soon site config.
- * TODO: Add final phone number, email, address, official Facebook URL,
- * facility photos, Robert video, Kimberly HeyGen video, and opening date.
+ * TODO: Add final phone number, email, official Facebook URL,
+ * facility photos, Robert video, and opening date.
  */
 export const colors = {
   navy: '#002D62',
@@ -25,18 +25,32 @@ export const site = {
   state: 'Tennessee',
   locationLabel: 'Morristown, Tennessee',
 
+  address: {
+    line1: '1859 South Cumberland Street',
+    cityStateZip: 'Morristown, Tennessee 37813',
+    full: '1859 South Cumberland Street, Morristown, Tennessee 37813',
+  },
+
+  directionsHref:
+    'https://www.google.com/maps/dir/?api=1&destination=1859+South+Cumberland+Street+Morristown+TN+37813',
+
+  mapEmbedUrl:
+    'https://maps.google.com/maps?q=1859+South+Cumberland+Street,+Morristown,+TN+37813&hl=en&z=16&output=embed',
+
   openingStatus: 'Opening Soon',
   announcementText: 'Quick In Auto Is Coming Soon to Morristown, Tennessee',
 
   robertImage: '/robert.png',
-  /** TODO: Replace with Kimberly's official photo when provided */
-  kimberlyImage: '/kimberly.png',
+  facilityShopImage: '/facility-shop.png',
 
   /** TODO: Replace with official Quick In Auto Facebook page URL */
   facebookHref: 'https://www.facebook.com/',
 
-  /** TODO: Replace with HeyGen welcome video embed URL when ready */
-  welcomeVideoEmbedUrl: null as string | null,
+  /** Google Drive intro video (9:16 portrait) */
+  welcomeVideoEmbedUrl:
+    'https://drive.google.com/file/d/18eHKoCLjELXVx-ojslxAsoNbICeopUB4/preview',
+  welcomeVideoViewUrl:
+    'https://drive.google.com/file/d/18eHKoCLjELXVx-ojslxAsoNbICeopUB4/view?usp=sharing',
 
   openingUpdatesId: 'opening-updates',
   introVideoId: 'welcome-video',
@@ -48,5 +62,6 @@ export const navLinks = [
   { label: 'Future Services', href: '#services' },
   { label: 'Meet Robert', href: '#meet-robert' },
   { label: 'Coming Soon', href: '#coming-soon' },
+  { label: 'Location', href: '#location' },
   { label: 'Contact', href: '#contact' },
 ] as const;

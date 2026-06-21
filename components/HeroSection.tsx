@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import { heroImage } from '@/lib/content';
 import { site } from '@/lib/site';
 import { OpeningUpdatesButton } from '@/components/ui/CTAButton';
 import CTAButton from '@/components/ui/CTAButton';
+import HeroVideo from '@/components/HeroVideo';
 
 export default function HeroSection() {
   return (
@@ -11,7 +11,7 @@ export default function HeroSection() {
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#002D62] via-[#E10600] to-[#1E5A9E] opacity-80" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 xl:gap-16 items-center">
           <div>
             <div className="mb-6">
               <Image
@@ -47,26 +47,7 @@ export default function HeroSection() {
             </span>
           </div>
 
-          <div className="relative">
-            <div className="absolute -inset-2 bg-gradient-to-br from-[#E10600]/20 via-transparent to-[#002D62]/15 rounded-lg blur-sm" />
-            <div className="relative aspect-[4/3] rounded-lg overflow-hidden metallic-card red-glow-border">
-              <Image
-                src={heroImage}
-                alt="Modest local automotive service environment"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#002D62]/50 via-transparent to-transparent" />
-              <div className="absolute top-0 left-0 right-0 h-1 bg-[#E10600]" />
-              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
-                <p className="text-white font-bold text-sm drop-shadow-md">
-                  A trustworthy local automotive service experience — preparing to open in Morristown
-                </p>
-              </div>
-            </div>
-          </div>
+          <HeroVideo />
         </div>
       </div>
 

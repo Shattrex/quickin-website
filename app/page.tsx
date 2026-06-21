@@ -2,10 +2,10 @@ import AnnouncementStrip from '@/components/AnnouncementStrip';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import KimberlySection from '@/components/KimberlySection';
-import IntroVideoSection from '@/components/IntroVideoSection';
 import ServicesSection from '@/components/ServicesSection';
 import RobertSection from '@/components/RobertSection';
 import FacilityProgressSection from '@/components/FacilityProgressSection';
+import MapSection from '@/components/MapSection';
 import SocialSection from '@/components/SocialSection';
 import OpeningUpdatesForm from '@/components/OpeningUpdatesForm';
 import ContactSection from '@/components/ContactSection';
@@ -19,10 +19,10 @@ export default function Home() {
       <main>
         <HeroSection />
         <KimberlySection />
-        <IntroVideoSection />
         <ServicesSection />
         <RobertSection />
         <FacilityProgressSection />
+        <MapSection />
         <SocialSection />
         <OpeningUpdatesForm />
         <ContactSection />
