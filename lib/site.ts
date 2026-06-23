@@ -45,9 +45,9 @@ export const site = {
 
   /** Google Drive intro video (9:16 portrait) */
   welcomeVideoEmbedUrl:
-    'https://drive.google.com/file/d/18eHKoCLjELXVx-ojslxAsoNbICeopUB4/preview',
+    'https://drive.google.com/file/d/15vqgzZ00xfeboPYmTpp_ZguiU9-ubE56/preview',
   welcomeVideoViewUrl:
-    'https://drive.google.com/file/d/18eHKoCLjELXVx-ojslxAsoNbICeopUB4/view?usp=sharing',
+    'https://drive.google.com/file/d/15vqgzZ00xfeboPYmTpp_ZguiU9-ubE56/view?usp=sharing',
 
   openingUpdatesId: 'opening-updates',
   introVideoId: 'welcome-video',
